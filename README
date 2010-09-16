@@ -4,5 +4,10 @@ Dependencies:
 cairo
 xlib
 
+To install:
+./configure
+make
+make install
+
 Contact:
 Mikael Finstad (mikael86@online.no)
