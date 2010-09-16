@@ -1,0 +1,33 @@
+#                                               -*- Autoconf -*-
+# Process this file with autoconf to produce a configure script.
+
+PACKAGE=Sleekboard
+VERSION=0.1
+
+AC_PREREQ([2.12])
+
+AC_INIT(Sleekboard, 0.1)
+AM_INIT_AUTOMAKE($PACKAGE, $VERSION)
+AC_CONFIG_SRCDIR([src/button.c])
+AC_CONFIG_HEADERS([config.h])
+
+# Checks for programs.
+AC_PROG_CC
+
+# Checks for libraries.
+PKG_CHECK_MODULES(Cairo, cairo x11,,exit)
+CFLAGS="$CFLAGS $Cairo_CFLAGS"
+LDFLAGS="$LDFLAGS $Cairo_LIBS"
+
+# Checks for header files.
+AC_PATH_X
+AC_CHECK_HEADERS([stdlib.h string.h])
+
+# Checks for typedefs, structures, and compiler characteristics.
+
+# Checks for library functions.
+AC_FUNC_MALLOC
+
+AC_CONFIG_FILES([Makefile
+                 src/Makefile])
+AC_OUTPUT
